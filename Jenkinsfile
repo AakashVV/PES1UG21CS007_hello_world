@@ -17,12 +17,13 @@ pipeline {
 		stage('Deploy') {
 			steps {
 				echo 'Deployment Successful'
+				sh 'g++ error.cpp -o output'
 			}
 		}
 	}
 	post {
 		failure {
-			echo 'Pipeline failed'
+			error 'Pipeline failed'
 		}
 	}
 }
